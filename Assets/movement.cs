@@ -6,6 +6,10 @@ public class movement : MonoBehaviour
 {
 
     public Rigidbody2D rigidbody2dvar;
+    public KeyCode upkey;
+    public KeyCode downkey;
+    public float speed = 2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +25,13 @@ public class movement : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(upkey) && transform.position.y < 4) 
         {
-            rigidbody2dvar.velocity = Vector2.up;
+            rigidbody2dvar.velocity = Vector2.up * speed;
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(downkey) && transform.position.y >-4)
         {
-            rigidbody2dvar.velocity = Vector2.down;
+            rigidbody2dvar.velocity = Vector2.down * speed;
         }
         else
         {
